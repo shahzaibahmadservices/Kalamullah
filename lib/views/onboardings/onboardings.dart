@@ -72,6 +72,7 @@ class _OnBoardingState extends State<OnBoarding> {
                       SharedPreferences prefs =
                           await SharedPreferences.getInstance();
                       prefs.setBool('hasSeenOnboarding', true);
+                      // ignore: use_build_context_synchronously
                       Navigator.of(context).pushReplacement(
                         MaterialPageRoute(
                             builder: (context) => const HomeScreen()),

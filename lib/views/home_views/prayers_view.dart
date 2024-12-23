@@ -61,7 +61,7 @@ class _PrayersViewState extends State<PrayersView> {
                   ),
                 ),
                 Divider(
-                  color: gClr.withOpacity(0.5),
+                  color: gClr.withAlpha(100),
                   thickness: 1,
                 ),
                 Padding(
@@ -81,7 +81,7 @@ class _PrayersViewState extends State<PrayersView> {
                   ),
                 ),
                 Divider(
-                  color: gClr.withOpacity(0.5),
+                  color: gClr.withAlpha(100),
                   thickness: 1,
                 ),
                 Padding(
@@ -101,7 +101,7 @@ class _PrayersViewState extends State<PrayersView> {
                   ),
                 ),
                 Divider(
-                  color: gClr.withOpacity(0.5),
+                  color: gClr.withAlpha(100),
                   thickness: 1,
                 ),
                 Padding(
@@ -121,7 +121,7 @@ class _PrayersViewState extends State<PrayersView> {
                   ),
                 ),
                 Divider(
-                  color: gClr.withOpacity(0.5),
+                  color: gClr.withAlpha(100),
                   thickness: 1,
                 ),
                 Padding(

@@ -13,7 +13,7 @@ ThemeData theme = ThemeData(
   ),
   textSelectionTheme: TextSelectionThemeData(
     cursorColor: gClr,
-    selectionColor: gClr.withOpacity(0.5),
+    selectionColor: gClr.withAlpha(100),
   ),
   textTheme: TextTheme(
     headlineLarge:

@@ -49,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
           iconSize: 18,
           backgroundColor: wClr,
           selectedItemColor: gClr,
-          unselectedItemColor: gClr.withOpacity(0.5),
+          unselectedItemColor: gClr.withAlpha(100),
           onTap: _updateIndex,
         ),
       ),

@@ -17,7 +17,7 @@ Widget surahListTile({
           borderRadius: BorderRadius.circular(8),
           boxShadow: [
             BoxShadow(
-              color: gClr.withOpacity(0.3),
+              color: gClr.withAlpha(100),
               offset: const Offset(0, 4),
               blurRadius: 4,
               spreadRadius: 1,

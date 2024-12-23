@@ -98,7 +98,7 @@ class _MainViewState extends State<MainView> {
                                     borderRadius: BorderRadius.circular(24),
                                     boxShadow: [
                                       BoxShadow(
-                                        color: gClr.withOpacity(0.3),
+                                        color: gClr.withAlpha(100),
                                         offset: const Offset(0, 6),
                                         blurRadius: 6,
                                         spreadRadius: 2,

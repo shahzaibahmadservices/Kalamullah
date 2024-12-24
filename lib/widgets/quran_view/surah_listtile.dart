@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kalamullah/constants/constants.dart';
+import 'package:kalamullah/consts/constants.dart';
 import 'package:kalamullah/models/surah.dart';
 
 Widget surahListTile({
@@ -27,26 +27,16 @@ Widget surahListTile({
         child: Column(
           children: [
             Container(
-              height: 24,
-              width: 24,
-              decoration: const BoxDecoration(
-                shape: BoxShape.circle,
-                color: gClr,
-              ),
+              height: 20,
+              width: 20,
+              decoration:
+                  const BoxDecoration(shape: BoxShape.circle, color: gClr),
               child: Center(
-                child: Text(
-                  surah.number.toString(),
-                  style: const TextStyle(color: wClr, fontSize: 12),
-                ),
+                child: Text(surah.number.toString(), style: w12b),
               ),
             ),
-            const SizedBox(
-              height: 5,
-            ),
-            Text(
-              surah.name!,
-              style: theme.textTheme.headlineMedium,
-            ),
+            const SizedBox(height: 5),
+            Text(surah.name!, style: arg20b),
           ],
         ),
       ),

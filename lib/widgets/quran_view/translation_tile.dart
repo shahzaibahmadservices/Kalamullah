@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kalamullah/constants/constants.dart';
+import 'package:kalamullah/consts/constants.dart';
 import 'package:kalamullah/models/surah_translation.dart';
 
 class TranslationTile extends StatelessWidget {
@@ -17,13 +17,18 @@ class TranslationTile extends StatelessWidget {
         padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
           color: wClr,
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(12),
+          boxShadow: [
+            BoxShadow(
+              color: gClr.withAlpha(100),
+              offset: const Offset(0, 4),
+              blurRadius: 6,
+              spreadRadius: 1,
+            ),
+          ],
         ),
-        child: Text(
-          surahTranslation.arabic_text!,
-          textDirection: TextDirection.rtl,
-          style: theme.textTheme.headlineLarge,
-        ),
+        child: Text(surahTranslation.arabic_text!,
+            textDirection: TextDirection.rtl, style: arg24b),
       ),
     );
   }

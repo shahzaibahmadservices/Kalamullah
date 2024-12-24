@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:kalamullah/constants/constants.dart';
+import 'package:kalamullah/consts/constants.dart';
 import 'package:kalamullah/models/surah.dart';
 import 'package:kalamullah/services/api_services.dart';
-import 'package:kalamullah/widgets/surah_detail.dart';
-import 'package:kalamullah/widgets/surah_listtile.dart';
+import 'package:kalamullah/widgets/quran_view/surah_detail.dart';
+import 'package:kalamullah/widgets/quran_view/surah_listtile.dart';
 
 class QuranView extends StatefulWidget {
   const QuranView({super.key});
@@ -17,20 +17,12 @@ class _QuranViewState extends State<QuranView> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          automaticallyImplyLeading: false,
-          backgroundColor: Colors.transparent,
-          title: Text(
-            "Quran",
-            style: theme.textTheme.titleMedium,
-          ),
-          centerTitle: true,
-        ),
-        body: FutureBuilder(
+    return Scaffold(
+      body: SafeArea(
+        child: FutureBuilder(
           future: apiServices.getSurah(),
-          builder: (BuildContext context, AsyncSnapshot<List<Surah>> snapshot) {
+          builder:
+              (BuildContext context, AsyncSnapshot<List<Surah>> snapshot) {
             if (snapshot.hasData) {
               List<Surah>? surah = snapshot.data;
               return ListView.builder(

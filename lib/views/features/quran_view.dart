@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:kalamullah/consts/constants.dart';
+import 'package:kalamullah/services/quran_api_services.dart';
 import 'package:kalamullah/models/surah.dart';
-import 'package:kalamullah/services/api_services.dart';
-import 'package:kalamullah/widgets/quran_view/surah_detail.dart';
+import 'package:kalamullah/consts/surah_index.dart';
 import 'package:kalamullah/widgets/quran_view/surah_listtile.dart';
+import 'package:kalamullah/widgets/quran_view/surah_detail.dart';
 
 class QuranView extends StatefulWidget {
   const QuranView({super.key});
@@ -13,16 +14,15 @@ class QuranView extends StatefulWidget {
 }
 
 class _QuranViewState extends State<QuranView> {
-  ApiServices apiServices = ApiServices();
+  QuranAPIServices quranAPIServices = QuranAPIServices();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: FutureBuilder(
-          future: apiServices.getSurah(),
-          builder:
-              (BuildContext context, AsyncSnapshot<List<Surah>> snapshot) {
+          future: quranAPIServices.getSurah(),
+          builder: (BuildContext context, AsyncSnapshot<List<Surah>> snapshot) {
             if (snapshot.hasData) {
               List<Surah>? surah = snapshot.data;
               return ListView.builder(
@@ -39,7 +39,9 @@ class _QuranViewState extends State<QuranView> {
                 ),
               );
             }
-            return const Center(child: cpi);
+            return const Center(
+              child: progressIndicator,
+            );
           },
         ),
       ),

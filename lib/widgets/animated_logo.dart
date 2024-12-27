@@ -11,10 +11,7 @@ class AnimatedLogo extends StatelessWidget {
       duration: const Duration(seconds: 2),
       curve: Curves.easeInOut,
       builder: (context, double scale, child) {
-        return Transform.scale(
-          scale: scale,
-          child: widget,
-        );
+        return Transform.scale(scale: scale, child: widget);
       },
     );
   }

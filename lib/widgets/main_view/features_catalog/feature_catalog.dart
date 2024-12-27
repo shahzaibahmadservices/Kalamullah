@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:kalamullah/widgets/general/navigation_widget.dart';
+import 'package:kalamullah/widgets/navigation_widget.dart';
 import 'package:kalamullah/widgets/main_view/features_catalog/reuseable_expanded_widget.dart';
-import 'package:kalamullah/views/quran_view.dart';
-import 'package:kalamullah/views/prayers_view.dart';
+import 'package:kalamullah/views/features/quran_view.dart';
+import 'package:kalamullah/views/features/prayers_view.dart';
 
 class FeatureCatalog extends StatelessWidget {
   const FeatureCatalog({super.key});

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:kalamullah/consts/constants.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:kalamullah/widgets/animated_logo.dart';
 import 'package:intl/intl.dart';
-import 'package:kalamullah/widgets/general/animated_logo.dart';
 import 'package:location/location.dart';
 import 'package:adhan/adhan.dart';
 
@@ -29,8 +29,11 @@ class _PrayersViewState extends State<PrayersView> {
             const Padding(
               padding: EdgeInsets.only(top: 24, bottom: 24),
               child: AnimatedLogo(
-                widget: FaIcon(FontAwesomeIcons.handsPraying,
-                    color: gClr, size: 48),
+                widget: FaIcon(
+                  FontAwesomeIcons.handsPraying,
+                  color: gClr,
+                  size: 48,
+                ),
               ),
             ),
             FutureBuilder(
@@ -40,7 +43,7 @@ class _PrayersViewState extends State<PrayersView> {
                     snapshot.connectionState == ConnectionState.waiting ||
                     snapshot.connectionState == ConnectionState.active) {
                   return const Center(
-                    child: cpi,
+                    child: progressIndicator,
                   );
                 }
                 final myCoordinates = Coordinates(33.7699333, 72.8248431);
@@ -56,10 +59,10 @@ class _PrayersViewState extends State<PrayersView> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text("Fajar", style: g18b),
+                            Text("Fajar", style: g18),
                             Text(
                               DateFormat.jm().format(prayerTimes.fajr),
-                              style: g18b,
+                              style: g18,
                             ),
                           ],
                         ),
@@ -73,9 +76,9 @@ class _PrayersViewState extends State<PrayersView> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text("Dhuhr", style: g18b),
+                            Text("Dhuhr", style: g18),
                             Text(DateFormat.jm().format(prayerTimes.dhuhr),
-                                style: g18b),
+                                style: g18),
                           ],
                         ),
                       ),
@@ -85,10 +88,10 @@ class _PrayersViewState extends State<PrayersView> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text("Asr", style: g18b),
+                            Text("Asr", style: g18),
                             Text(
                               DateFormat.jm().format(prayerTimes.asr),
-                              style: g18b,
+                              style: g18,
                             ),
                           ],
                         ),
@@ -99,10 +102,10 @@ class _PrayersViewState extends State<PrayersView> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text("Maghrib", style: g18b),
+                            Text("Maghrib", style: g18),
                             Text(
                               DateFormat.jm().format(prayerTimes.maghrib),
-                              style: g18b,
+                              style: g18,
                             ),
                           ],
                         ),
@@ -118,11 +121,11 @@ class _PrayersViewState extends State<PrayersView> {
                           children: [
                             Text(
                               "Isha",
-                              style: g18b,
+                              style: g18,
                             ),
                             Text(
                               DateFormat.jm().format(prayerTimes.isha),
-                              style: g18b,
+                              style: g18,
                             ),
                           ],
                         ),

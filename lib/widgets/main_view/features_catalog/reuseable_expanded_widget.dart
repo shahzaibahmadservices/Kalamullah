@@ -20,19 +20,14 @@ class ReusableExpandedWidget extends StatelessWidget {
             color: wClr,
             borderRadius: BorderRadius.circular(24),
             boxShadow: [
-              BoxShadow(
-                color: gClr.withAlpha(100),
-                offset: const Offset(0, 6),
-                blurRadius: 7,
-                spreadRadius: 1,
-              ),
+              shadowBox,
             ],
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               FaIcon(icon, color: gClr),
-              Text(txt, style: g16b),
+              Text(txt, style: g16),
             ],
           ),
         ),

@@ -16,12 +16,7 @@ Widget surahListTile({
           color: wClr,
           borderRadius: BorderRadius.circular(8),
           boxShadow: [
-            BoxShadow(
-              color: gClr.withAlpha(100),
-              offset: const Offset(0, 4),
-              blurRadius: 4,
-              spreadRadius: 1,
-            ),
+            shadowBox,
           ]),
       child: Center(
         child: Column(
@@ -32,11 +27,11 @@ Widget surahListTile({
               decoration:
                   const BoxDecoration(shape: BoxShape.circle, color: gClr),
               child: Center(
-                child: Text(surah.number.toString(), style: w12b),
+                child: Text(surah.number.toString(), style: w12),
               ),
             ),
             const SizedBox(height: 5),
-            Text(surah.name!, style: arg20b),
+            Text(surah.name!, style: arg20),
           ],
         ),
       ),

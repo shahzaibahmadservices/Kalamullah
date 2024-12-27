@@ -1,19 +1,18 @@
-import 'dart:math';
-import 'dart:convert';
-import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
-import 'package:kalamullah/models/ayat_of_the_day.dart';
+import 'package:http/http.dart' as http;
 import 'package:kalamullah/models/surah.dart';
+import 'package:kalamullah/models/ayat_of_the_day.dart';
 import 'package:kalamullah/models/surah_translation.dart';
+import 'dart:convert';
+import 'dart:math';
 
-class ApiServices {
+class QuranAPIServices {
   final endPointUrl = 'https://api.alquran.cloud/v1/surah';
   List<Surah> list = [];
-
   Future<List<Surah>> getSurah() async {
-    Response res = await http.get(Uri.parse(endPointUrl));
-    if (res.statusCode == 200) {
-      Map<String, dynamic> json = jsonDecode(res.body);
+    Response response = await http.get(Uri.parse(endPointUrl));
+    if (response.statusCode == 200) {
+      Map<String, dynamic> json = jsonDecode(response.body);
       json['data'].forEach((element) {
         if (list.length < 114) {
           list.add(Surah.fromJson(element));
@@ -41,10 +40,10 @@ class ApiServices {
     return min + rn.nextInt(max - min);
   }
 
-  Future<SurahTranslationList> getTranslation(int index) async {
+  Future<SurahTranslationList> getSurahTranslation(int index) async {
     final url =
         "https://quranenc.com/api/translation/sura/urdu_junagarhi/$index";
-    var res = await http.get(Uri.parse(url));
-    return SurahTranslationList.fromJson(json.decode(res.body));
+    var response = await http.get(Uri.parse(url));
+    return SurahTranslationList.fromJson(json.decode(response.body));
   }
 }

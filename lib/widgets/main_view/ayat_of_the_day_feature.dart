@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:kalamullah/consts/constants.dart';
 import 'package:kalamullah/models/ayat_of_the_day.dart';
-import 'package:kalamullah/services/api_services.dart';
+import 'package:kalamullah/services/quran_api_services.dart';
 
-final ApiServices _apiServices = ApiServices();
+final QuranAPIServices quranAPIServices = QuranAPIServices();
 
 FutureBuilder<AyatOfTheDay> ayatOfTheDayFeature() {
   return FutureBuilder<AyatOfTheDay>(
-    future: _apiServices.getAyatOfTheDay(),
+    future: quranAPIServices.getAyatOfTheDay(),
     builder: (context, snapshot) {
       switch (snapshot.connectionState) {
         case ConnectionState.none:
           return const Center(child: syncproblem);
         case ConnectionState.waiting:
-          return const Center(child: cpi);
+          return const Center(child: progressIndicator);
         case ConnectionState.active:
           return const Center(child: sync);
         case ConnectionState.done:
@@ -29,23 +29,18 @@ FutureBuilder<AyatOfTheDay> ayatOfTheDayFeature() {
                 color: wClr,
                 borderRadius: BorderRadius.circular(24),
                 boxShadow: [
-                  BoxShadow(
-                    color: gClr.withAlpha(100),
-                    offset: const Offset(0, 6),
-                    blurRadius: 7,
-                    spreadRadius: 1,
-                  ),
+                  shadowBox
                 ],
               ),
               child: Column(
                 children: [
                   const SizedBox(height: 10),
-                  Text("Ayat of the Day", style: g16b),
+                  Text("Ayat of the Day", style: g16),
                   const Divider(color: gClr, thickness: 1),
                   Padding(
                     padding: const EdgeInsets.only(left: 4, right: 3),
                     child: Text(ayat.arTxt!,
-                        style: arg24b, textDirection: TextDirection.rtl),
+                        style: arg24, textDirection: TextDirection.rtl),
                   ),
                   RichText(
                     text: TextSpan(
@@ -54,13 +49,13 @@ FutureBuilder<AyatOfTheDay> ayatOfTheDayFeature() {
                           child: Padding(
                             padding: const EdgeInsets.all(8),
                             child:
-                                Text(ayat.surahNumber!.toString(), style: g16b),
+                                Text(ayat.surahNumber!.toString(), style: g16),
                           ),
                         ),
                         WidgetSpan(
                           child: Padding(
                             padding: const EdgeInsets.all(8),
-                            child: Text(ayat.surahName!, style: g16b),
+                            child: Text(ayat.surahName!, style: g16),
                           ),
                         ),
                       ],
@@ -71,7 +66,7 @@ FutureBuilder<AyatOfTheDay> ayatOfTheDayFeature() {
             );
           } else {
             return const Center(
-              child: cpi,
+              child: progressIndicator,
             );
           }
       }

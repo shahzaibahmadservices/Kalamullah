@@ -19,16 +19,11 @@ class TranslationTile extends StatelessWidget {
           color: wClr,
           borderRadius: BorderRadius.circular(12),
           boxShadow: [
-            BoxShadow(
-              color: gClr.withAlpha(100),
-              offset: const Offset(0, 4),
-              blurRadius: 6,
-              spreadRadius: 1,
-            ),
+            shadowBox,
           ],
         ),
         child: Text(surahTranslation.arabic_text!,
-            textDirection: TextDirection.rtl, style: arg24b),
+            textDirection: TextDirection.rtl, style: arg24),
       ),
     );
   }

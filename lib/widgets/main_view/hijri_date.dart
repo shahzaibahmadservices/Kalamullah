@@ -13,11 +13,11 @@ class HijriDate extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          Text(hijriDate.hDay.toString(), style: g16b),
+          Text(hijriDate.hDay.toString(), style: g16),
           const SizedBox(width: 5),
-          Text(hijriDate.longMonthName, style: g16b),
+          Text(hijriDate.longMonthName, style: g16),
           const SizedBox(width: 5),
-          Text(hijriDate.hYear.toString(), style: g16b),
+          Text(hijriDate.hYear.toString(), style: g16),
         ],
       ),
     );

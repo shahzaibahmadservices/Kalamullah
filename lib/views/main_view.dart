@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:kalamullah/consts/constants.dart';
-import 'package:kalamullah/widgets/general/animated_logo.dart';
+import 'package:kalamullah/widgets/animated_logo.dart';
+import 'package:kalamullah/widgets/main_view/hijri_date.dart';
 import 'package:kalamullah/widgets/main_view/ayat_of_the_day_feature.dart';
 import 'package:kalamullah/widgets/main_view/features_catalog/feature_catalog.dart';
-import 'package:kalamullah/widgets/main_view/hijri_date.dart';
+import 'package:kalamullah/widgets/navigation_widget.dart';
+import 'package:kalamullah/views/features/chat_view.dart';
 
 class MainView extends StatelessWidget {
   const MainView({super.key});
@@ -22,9 +24,7 @@ class MainView extends StatelessWidget {
               const HijriDate(),
               Center(
                 child: Column(
-                  children: [
-                    ayatOfTheDayFeature(),
-                  ],
+                  children: [ayatOfTheDayFeature()],
                 ),
               ),
               const FeatureCatalog(),
@@ -33,15 +33,14 @@ class MainView extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          navigationWidget(context, const ChatScreen());
+        },
         backgroundColor: gClr,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(100),
         ),
-        child: const Icon(
-          Icons.chat,
-          color: wClr,
-        ),
+        child: const Icon(Icons.chat, color: wClr),
       ),
     );
   }

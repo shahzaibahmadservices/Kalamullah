@@ -45,7 +45,8 @@ class ChatWidgetState extends State<ChatWidget>
                 ? Colors.white
                 : Colors.white.withAlpha(10),
             child: Padding(
-              padding: const EdgeInsets.only(left: 12, right: 12, top: 12, bottom: 4),
+              padding: const EdgeInsets.only(
+                  left: 12, right: 12, top: 12, bottom: 4),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -59,7 +60,8 @@ class ChatWidgetState extends State<ChatWidget>
                   const SizedBox(width: 10),
                   Expanded(
                     child: Text(
-                      widget.msg,style: g16,
+                      widget.msg,
+                      style: g16,
                     ),
                   ),
                 ],

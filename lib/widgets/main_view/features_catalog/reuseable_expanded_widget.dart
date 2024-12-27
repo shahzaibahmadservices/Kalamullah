@@ -19,9 +19,7 @@ class ReusableExpandedWidget extends StatelessWidget {
           decoration: BoxDecoration(
             color: wClr,
             borderRadius: BorderRadius.circular(24),
-            boxShadow: [
-              shadowBox,
-            ],
+            boxShadow: [shadowBox],
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

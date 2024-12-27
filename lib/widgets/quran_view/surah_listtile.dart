@@ -13,11 +13,10 @@ Widget surahListTile({
       margin: const EdgeInsets.all(8),
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-          color: wClr,
-          borderRadius: BorderRadius.circular(8),
-          boxShadow: [
-            shadowBox,
-          ]),
+        color: wClr,
+        borderRadius: BorderRadius.circular(8),
+        boxShadow: [shadowBox],
+      ),
       child: Center(
         child: Column(
           children: [

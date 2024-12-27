@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:kalamullah/consts/constants.dart';
 import 'package:kalamullah/consts/surah_index.dart';
-import 'package:kalamullah/models/surah_translation.dart';
 import 'package:kalamullah/services/quran_api_services.dart';
+import 'package:kalamullah/models/surah_translation.dart';
 import 'package:kalamullah/widgets/quran_view/translation_tile.dart';
 
 class SurahDetail extends StatelessWidget {
@@ -10,7 +10,6 @@ class SurahDetail extends StatelessWidget {
 
   static const String id = 'surahDetail_screen';
   final QuranAPIServices quranAPIServices = QuranAPIServices();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,8 +45,7 @@ class SurahDetail extends StatelessWidget {
                       opacity: animation,
                       child: TranslationTile(
                         index: index,
-                        surahTranslation:
-                            snapshot.data!.translationList[index],
+                        surahTranslation: snapshot.data!.translationList[index],
                       ),
                     );
                   },

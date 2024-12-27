@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kalamullah/consts/constants.dart';
-import 'package:kalamullah/models/ayat_of_the_day.dart';
 import 'package:kalamullah/services/quran_api_services.dart';
+import 'package:kalamullah/models/ayat_of_the_day.dart';
 
 final QuranAPIServices quranAPIServices = QuranAPIServices();
 
@@ -28,9 +28,7 @@ FutureBuilder<AyatOfTheDay> ayatOfTheDayFeature() {
               decoration: BoxDecoration(
                 color: wClr,
                 borderRadius: BorderRadius.circular(24),
-                boxShadow: [
-                  shadowBox
-                ],
+                boxShadow: [shadowBox],
               ),
               child: Column(
                 children: [
@@ -39,8 +37,11 @@ FutureBuilder<AyatOfTheDay> ayatOfTheDayFeature() {
                   const Divider(color: gClr, thickness: 1),
                   Padding(
                     padding: const EdgeInsets.only(left: 4, right: 3),
-                    child: Text(ayat.arTxt!,
-                        style: arg24, textDirection: TextDirection.rtl),
+                    child: Text(
+                      ayat.arTxt!,
+                      style: arg24,
+                      textDirection: TextDirection.rtl,
+                    ),
                   ),
                   RichText(
                     text: TextSpan(

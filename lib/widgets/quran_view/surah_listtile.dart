@@ -21,8 +21,8 @@ Widget surahListTile({
         child: Column(
           children: [
             Container(
-              height: 20,
-              width: 20,
+              height: 25,
+              width: 25,
               decoration:
                   const BoxDecoration(shape: BoxShape.circle, color: gClr),
               child: Center(
@@ -30,7 +30,12 @@ Widget surahListTile({
               ),
             ),
             const SizedBox(height: 5),
-            Text(surah.name!, style: arg20),
+            Column(
+              children: [
+                Text(surah.englishName!, style: g16),
+                Text(surah.name!, style: arg20),
+              ],
+            ),
           ],
         ),
       ),

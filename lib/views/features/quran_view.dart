@@ -5,6 +5,7 @@ import 'package:kalamullah/models/surah.dart';
 import 'package:kalamullah/consts/surah_index.dart';
 import 'package:kalamullah/widgets/quran_view/surah_listtile.dart';
 import 'package:kalamullah/widgets/quran_view/surah_detail.dart';
+import 'package:kalamullah/widgets/quran_view/search_bar.dart' as search_bar;
 
 class QuranView extends StatefulWidget {
   const QuranView({super.key});
@@ -15,34 +16,76 @@ class QuranView extends StatefulWidget {
 
 class _QuranViewState extends State<QuranView> {
   QuranAPIServices quranAPIServices = QuranAPIServices();
+  TextEditingController searchController = TextEditingController();
+  List<Surah>? surahList;
+  List<Surah>? filteredSurahList;
+
+  @override
+  void initState() {
+    super.initState();
+    quranAPIServices.getSurah().then((surah) {
+      setState(() {
+        surahList = surah;
+        filteredSurahList = surah;
+      });
+    });
+  }
+
+  void filterSurahs(String query) {
+    setState(() {
+      filteredSurahList = surahList!
+          .where((surah) =>
+              surah.englishName!.toLowerCase().contains(query.toLowerCase()))
+          .toList();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: wClr,
       body: SafeArea(
-        child: FutureBuilder(
-          future: quranAPIServices.getSurah(),
-          builder: (BuildContext context, AsyncSnapshot<List<Surah>> snapshot) {
-            if (snapshot.hasData) {
-              List<Surah>? surah = snapshot.data;
-              return ListView.builder(
-                itemCount: surah!.length,
-                itemBuilder: (context, index) => surahListTile(
-                  surah: surah[index],
-                  context: context,
-                  onTap: () {
-                    setState(() {
-                      Indexes.surahIndex = (index + 1);
-                    });
-                    Navigator.pushNamed(context, SurahDetail.id);
-                  },
-                ),
-              );
-            }
-            return const Center(
-              child: progressIndicator,
-            );
-          },
+        child: Column(
+          children: [
+            search_bar.SearchBar(
+              controller: searchController,
+              onChanged: filterSurahs,
+            ),
+            Expanded(
+              child: FutureBuilder(
+                future: quranAPIServices.getSurah(),
+                builder: (BuildContext context,
+                    AsyncSnapshot<List<Surah>> snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return const Center(
+                      child: progressIndicator,
+                    );
+                  } else if (snapshot.hasError) {
+                    return Center(
+                      child: Text('Error: ${snapshot.error}'),
+                    );
+                  } else if (snapshot.hasData) {
+                    return ListView.builder(
+                      itemCount: filteredSurahList!.length,
+                      itemBuilder: (context, index) => surahListTile(
+                        surah: filteredSurahList![index],
+                        context: context,
+                        onTap: () {
+                          setState(() {
+                            Indexes.surahIndex = surahList!.indexOf(filteredSurahList![index]) + 1;
+                          });
+                          Navigator.pushNamed(context, SurahDetail.id);
+                        },
+                      ),
+                    );
+                  }
+                  return const Center(
+                    child: progressIndicator,
+                  );
+                },
+              ),
+            ),
+          ],
         ),
       ),
     );

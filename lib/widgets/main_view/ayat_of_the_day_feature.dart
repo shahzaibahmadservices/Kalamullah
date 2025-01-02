@@ -18,7 +18,13 @@ FutureBuilder<AyatOfTheDay> ayatOfTheDayFeature() {
           return const Center(child: sync);
         case ConnectionState.done:
           if (snapshot.hasError) {
-            return const Center(child: signalWifiOff);
+            return Center(
+                child: Column(
+              children: [
+                signalWifiOff,
+                Text("No Internet Connection", style: g16)
+              ],
+            ));
           } else if (snapshot.hasData) {
             final ayat = snapshot.data!;
             return Container(

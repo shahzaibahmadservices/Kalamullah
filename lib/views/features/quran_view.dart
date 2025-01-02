@@ -62,7 +62,10 @@ class _QuranViewState extends State<QuranView> {
                     );
                   } else if (snapshot.hasError) {
                     return Center(
-                      child: Text('Error: ${snapshot.error}'),
+                      child: Text(
+                        "An error occurred,\nPlease check your internet connection !!",
+                        style: g16,
+                      ),
                     );
                   } else if (snapshot.hasData) {
                     return ListView.builder(
@@ -72,7 +75,9 @@ class _QuranViewState extends State<QuranView> {
                         context: context,
                         onTap: () {
                           setState(() {
-                            Indexes.surahIndex = surahList!.indexOf(filteredSurahList![index]) + 1;
+                            Indexes.surahIndex =
+                                surahList!.indexOf(filteredSurahList![index]) +
+                                    1;
                           });
                           Navigator.pushNamed(context, SurahDetail.id);
                         },

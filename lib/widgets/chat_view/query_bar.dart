@@ -46,6 +46,10 @@ class _QueryBarState extends State<QueryBar> {
                 decoration: InputDecoration(
                   hintText: 'Type your religious query...',
                   hintStyle: g16,
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(30.0),
+                    borderSide: const BorderSide(color: gClr, width: 2),
+                  ),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(30.0),
                     borderSide: const BorderSide(color: gClr, width: 2),

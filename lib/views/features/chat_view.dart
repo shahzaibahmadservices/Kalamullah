@@ -37,7 +37,7 @@ class _ChatScreenState extends State<ChatScreen> {
 
     try {
       final response = await Gemini.instance.prompt(
-        parts: [Part.text("$message Please answer in 1 very short sentence.")],
+        parts: [Part.text("$message Please answer in 2 very short sentence.")],
       );
       setState(() {
         messages.add({
@@ -49,7 +49,7 @@ class _ChatScreenState extends State<ChatScreen> {
       setState(() {
         messages.add({
           'role': 'assistant',
-          'content': 'An error occurred while processing your request.',
+          'content': 'An error occurred while processing your request. Please check your Internet connection',
         });
       });
     } finally {

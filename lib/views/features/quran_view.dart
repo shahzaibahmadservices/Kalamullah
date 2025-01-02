@@ -56,7 +56,9 @@ class _QuranViewState extends State<QuranView> {
                 future: quranAPIServices.getSurah(),
                 builder: (BuildContext context,
                     AsyncSnapshot<List<Surah>> snapshot) {
-                  if (snapshot.connectionState == ConnectionState.waiting) {
+                  if (snapshot.connectionState == ConnectionState.none ||
+                      snapshot.connectionState == ConnectionState.waiting ||
+                      snapshot.connectionState == ConnectionState.active) {
                     return const Center(
                       child: progressIndicator,
                     );

@@ -49,7 +49,7 @@ class _ChatScreenState extends State<ChatScreen> {
       setState(() {
         messages.add({
           'role': 'assistant',
-          'content': 'An error occurred while processing your request. Please check your Internet connection',
+          'content': 'An error occurred while processing your request. Please check your Internet connection.',
         });
       });
     } finally {
